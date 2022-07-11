@@ -9,8 +9,8 @@ const Login = () => {
   const [users, setUsers] = useState(data);
 
   const [login, setLogin] = useState({
-    name: "",
-    password: "",
+    namelogin: "",
+    passwordlogin: "",
   });
 
   const handleChangeSave = (e) => {
@@ -42,14 +42,21 @@ const Login = () => {
   const handleSubmitLogin = (e) => {
     e.preventDefault();
     const user = users.map((user) => user);
-    if (!login.name || !login.password) {
+    if (!login.namelogin || !login.passwordlogin) {
       return false;
     }
-    if (user.name === login.name && user.password === login.password) {
-      return true;
+    if (
+      user.name === login.namelogin &&
+      user.password === login.passwordlogin
+    ) {
+      console.log("doğru giriş");
     } else {
       return false;
     }
+    setLogin({
+      namelogin: "",
+      passwordlogin: "",
+    });
   };
   useEffect(() => {
     console.log(users);
@@ -97,10 +104,10 @@ const Login = () => {
             <input
               type="text"
               className="form-control"
-              id="name"
-              name="name"
+              id="namelogin"
+              name="namelogin"
               placeholder="USERNAME"
-              value={login.name}
+              value={login.namelogin}
               onChange={(e) => handleChangeLogin(e)}
             />
           </div>
@@ -108,10 +115,10 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
-              id="password"
-              name="password"
+              id="passwordlogin"
+              name="passwordlogin"
               placeholder="PASSWORD"
-              value={login.password}
+              value={login.passwordlogin}
               onChange={(e) => handleChangeLogin(e)}
             />
           </div>
