@@ -1,0 +1,13 @@
+.navbar-div {
+  background-color: aquamarine;
+  height: 12vh;
+}
+
+.navbar-a {
+  text-decoration: none;
+}
+
+.navbar-ul-li {
+  list-style-type: none;
+  cursor: pointer;
+}
