@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-import data from "../data";
+// import data from "../data";
 
-const Login = () => {
-  const [form, setForm] = useState({
-    name: "",
-    password: "",
-  });
+const Login = ({ data }) => {
   const [users, setUsers] = useState(data);
 
   const [login, setLogin] = useState({
@@ -13,30 +9,8 @@ const Login = () => {
     passwordlogin: "",
   });
 
-  const handleChangeSave = (e) => {
-    setForm({ ...form, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmitSave = (e) => {
-    e.preventDefault();
-
-    if (!form.name || !form.password) {
-      return false;
-    } else {
-      let id = Math.floor(Math.random() * 1000);
-      setUsers([
-        ...users,
-        { id: id, name: form.name, password: form.password },
-      ]);
-    }
-    setForm({
-      name: "",
-      password: "",
-    });
-  };
-
   const handleChangeLogin = (e) => {
-    setForm({ ...login, [e.target.id]: e.target.value });
+    // setForm({ ...login, [e.target.id]: e.target.value });
   };
 
   const handleSubmitLogin = (e) => {
@@ -71,34 +45,7 @@ const Login = () => {
     >
       <div className="login rounded-circle bg-warning p-5">
         <h1>\ T H Y / RECIPE</h1>
-        <form onSubmit={handleSubmitSave}>
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              placeholder="USERNAME"
-              value={form.name}
-              onChange={(e) => handleChangeSave(e)}
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={form.password}
-              placeholder="PASSWORD"
-              onChange={(e) => handleChangeSave(e)}
-            />
-          </div>
 
-          <button type="submit" className="btn btn-primary">
-            SIGN UP
-          </button>
-        </form>
         <form onSubmit={handleSubmitLogin}>
           <div className="mb-3">
             <input
