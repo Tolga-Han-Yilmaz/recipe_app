@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const List = ({ getData }) => {
   console.log(getData[0].recipe);
+  console.log(getData);
   const [recipe, setRecipe] = useState([]);
 
   const { label, image } = getData[0].recipe;
