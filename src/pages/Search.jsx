@@ -42,6 +42,8 @@ const Search = () => {
     setQuery(e.target.value);
   };
 
+  console.log(query);
+
   const handleSelectChange = (e) => {
     setMeal(e.target.value);
   };
