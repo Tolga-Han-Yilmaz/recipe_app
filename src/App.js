@@ -9,15 +9,12 @@ import List from "./components/List";
 import NotFound from "./pages/NotFound";
 import Signup from "./pages/Signup";
 import Enter from "./pages/Enter";
+// import AppRouter from "./pages/AppRouter";
 import { useState } from "react";
+import Nav from "./components/Nav";
 
 function App() {
-  const [details, setDetails] = useState({
-    label: "",
-    image: "",
-    ingredientLines: [],
-    totalNutrients: {},
-  });
+  const [details, setDetails] = useState();
   return (
     <div>
       <Routes>
@@ -29,11 +26,11 @@ function App() {
 
         <Route path="/home" element={<Home />} />
         <Route
-          path="/search"
+          path="/home/search"
           element={<Search setDetails={setDetails} details={details} />}
         />
-        <Route path="/list" element={<List details={details} />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/home/list" element={<List details={details} />} />
+        <Route path="/home/about" element={<About />} />
         <Route path="/github" element={<Github />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

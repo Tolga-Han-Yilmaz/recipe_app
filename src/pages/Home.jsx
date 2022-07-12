@@ -1,10 +1,13 @@
 import React from "react";
 import Nav from "../components/Nav";
+import loadingGif from "../assets/loading.gif";
+import Header from "../components/Header";
 
 const Home = () => {
   return (
     <div>
-      <Nav />
+      <Header />
+      {/* <img src={loadingGif} alt="" /> */}
     </div>
   );
 };

@@ -9,20 +9,30 @@ const Nav = () => {
         <div>
           <h3>
             \ T H Y /{" "}
-            <NavLink className="navbar-a" to="/search">
+            {/* <NavLink className="navbar-a" to="/home/search">
               Recipe
-            </NavLink>
+            </NavLink> */}
+            <Link className="navbar-a" to="/home/search">
+              Recipe
+            </Link>
           </h3>
         </div>
         <div>
           <ul className="navbar-ul d-flex">
-            <NavLink
-              to="/about"
+            {/* <NavLink
+              to="/home/about"
               style={{ fontSize: "2.5rem" }}
               className="me-3 display-5 navbar-ul-li nav-link"
             >
               About
-            </NavLink>
+            </NavLink> */}
+            <Link
+              to="/home/about"
+              style={{ fontSize: "2.5rem" }}
+              className="me-3 display-5 navbar-ul-li nav-link"
+            >
+              About
+            </Link>
             <li
               style={{ fontSize: "2.5rem" }}
               className="me-3 display-5 navbar-ul-li nav-link"
@@ -34,13 +44,20 @@ const Nav = () => {
                 Github
               </a>
             </li>
-            <NavLink
+            {/* <NavLink
               to="/login"
               className="display-5 navbar-ul-li nav-link"
               style={{ fontSize: "2.5rem" }}
             >
               Logout
-            </NavLink>
+            </NavLink> */}
+            <Link
+              to="/login"
+              className="display-5 navbar-ul-li nav-link"
+              style={{ fontSize: "2.5rem" }}
+            >
+              Logout
+            </Link>
           </ul>
         </div>
       </nav>

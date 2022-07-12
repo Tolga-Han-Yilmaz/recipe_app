@@ -3,10 +3,8 @@ import React, { useEffect, useState } from "react";
 import "../css/search.css";
 import loadingGif from "../assets/loading.gif";
 import List from "../components/List";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-//const url = `https://api.edamam.com/search?q=pizza&app_id=83a18932&app_key=acaeb333e1b2e936d4208d428362e805&mealType=breakfast`;
-// const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`
 const Search = ({ details, setDetails }) => {
   const navigate = useNavigate();
   const [getData, setGetData] = useState({});
@@ -14,9 +12,8 @@ const Search = ({ details, setDetails }) => {
     name: "",
     meal: "breakfast",
   });
-  // const [meal, setMeal] = useState("breakfast");
+
   const [show, setShow] = useState(false);
-  //   const url = `https://api.edamam.com/search?q=${query}&app_id=83a18932&app_key=acaeb333e1b2e936d4208d428362e805&mealType=${meal}`;
 
   const getResponse = async () => {
     try {
@@ -64,14 +61,14 @@ const Search = ({ details, setDetails }) => {
   const handleDetails = async (e) => {
     console.log(e.target.parentElement.firstChild.innerText);
 
-    const b = getData.filter(
+    const filtered = await getData.filter(
       (item) =>
         item.recipe.label === e.target.parentElement.firstChild.innerText
     );
-
+    console.log(filtered);
     await setDetails({
       ...details,
-      b,
+      filtered,
     });
     // await navigate("/list", { replace: true });
   };
@@ -126,7 +123,7 @@ const Search = ({ details, setDetails }) => {
           </div>
         </form>
       </div>
-      {/* <List getData={getData} /> */}
+
       <div className="test container row mx-auto">
         {getData.map((item, index) => {
           return (
@@ -135,18 +132,11 @@ const Search = ({ details, setDetails }) => {
               <div className="card-body">
                 <h5 className="card-title">{item.recipe.label}</h5>
 
-                {/* <Link
-                  to=""
-                  className="btn btn-outline-danger w-50"
-                  onClick={handleDetails}
-                >
-                  Details
-                </Link> */}
                 <button
                   style={{ cursor: "pointer" }}
                   onClick={(e) => handleDetails(e)}
                 >
-                  View More
+                  Details
                 </button>
               </div>
             </div>
