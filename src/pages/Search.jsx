@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 //const url = `https://api.edamam.com/search?q=pizza&app_id=83a18932&app_key=acaeb333e1b2e936d4208d428362e805&mealType=breakfast`;
 // const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`
-const Search = () => {
+const Search = ({ details, setDetails }) => {
   const navigate = useNavigate();
   const [getData, setGetData] = useState({});
   const [query, setQuery] = useState({
@@ -61,7 +61,21 @@ const Search = () => {
   };
   console.log(query);
 
-  const handleDetails = () => {};
+  const handleDetails = async (e) => {
+    console.log(e.target.parentElement.firstChild.innerText);
+
+    const b = getData.filter(
+      (item) =>
+        item.recipe.label === e.target.parentElement.firstChild.innerText
+    );
+
+    await setDetails({
+      ...details,
+      b,
+    });
+    // await navigate("/list", { replace: true });
+  };
+  console.log(details);
 
   return (
     <div className="text-center my-5 bg-light">
@@ -121,13 +135,19 @@ const Search = () => {
               <div className="card-body">
                 <h5 className="card-title">{item.recipe.label}</h5>
 
-                <Link
+                {/* <Link
                   to=""
                   className="btn btn-outline-danger w-50"
                   onClick={handleDetails}
                 >
                   Details
-                </Link>
+                </Link> */}
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={(e) => handleDetails(e)}
+                >
+                  View More
+                </button>
               </div>
             </div>
           );

@@ -9,8 +9,15 @@ import List from "./components/List";
 import NotFound from "./pages/NotFound";
 import Signup from "./pages/Signup";
 import Enter from "./pages/Enter";
+import { useState } from "react";
 
 function App() {
+  const [details, setDetails] = useState({
+    label: "",
+    image: "",
+    ingredientLines: [],
+    totalNutrients: {},
+  });
   return (
     <div>
       <Routes>
@@ -21,8 +28,11 @@ function App() {
         </Route>
 
         <Route path="/home" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/search/:id" element={<List />} />
+        <Route
+          path="/search"
+          element={<Search setDetails={setDetails} details={details} />}
+        />
+        <Route path="/list" element={<List details={details} />} />
         <Route path="/about" element={<About />} />
         <Route path="/github" element={<Github />} />
         <Route path="*" element={<NotFound />} />
