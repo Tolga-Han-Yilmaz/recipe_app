@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Github = () => {
   return (
     <div>
-      <a href="https://github.com/Tolga-Han-Yilmaz"></a>
+      <Link to="https://github.com/Tolga-Han-Yilmaz"></Link>
     </div>
   );
 };
