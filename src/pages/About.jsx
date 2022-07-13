@@ -2,7 +2,8 @@ import React from "react";
 import coding from "../assets/coding.svg";
 import "../css/about.css";
 
-const About = () => {
+const About = ({ setShowNav }) => {
+  setShowNav(true);
   return (
     <div className="about-div text-center">
       <img className="about-img" src={coding} alt="" />

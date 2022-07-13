@@ -5,7 +5,8 @@ import loadingGif from "../assets/loading.gif";
 import List from "../components/List";
 import { useNavigate } from "react-router-dom";
 
-const Search = ({ details, setDetails }) => {
+const Search = ({ details, setDetails, setShowNav }) => {
+  setShowNav(true);
   const navigate = useNavigate();
   const [getData, setGetData] = useState({});
   const [query, setQuery] = useState({
@@ -58,20 +59,20 @@ const Search = ({ details, setDetails }) => {
   };
   console.log(query);
 
-  const handleDetails = async (e) => {
-    console.log(e.target.parentElement.firstChild.innerText);
+  // const handleDetails = (e) => {
+  //   console.log(e.target.parentElement.firstChild.innerText);
 
-    const filtered = await getData.filter(
-      (item) =>
-        item.recipe.label === e.target.parentElement.firstChild.innerText
-    );
-    console.log(filtered);
-    await setDetails({
-      ...details,
-      filtered,
-    });
-    // await navigate("/list", { replace: true });
-  };
+  //   const filtered = getData.filter(
+  //     (item) =>
+  //       item.recipe.label === e.target.parentElement.firstChild.innerText
+  //   );
+  //   console.log(filtered);
+  //   setDetails({
+  //     ...details,
+  //     filtered,
+  //   });
+  //   // await navigate("/list", { replace: true });
+  // };
   console.log(details);
 
   return (
@@ -134,7 +135,8 @@ const Search = ({ details, setDetails }) => {
 
                 <button
                   style={{ cursor: "pointer" }}
-                  onClick={(e) => handleDetails(e)}
+                  // onClick={(e) => handleDetails(e)
+                  onClick={() => navigate(`/list`, { state: item })}
                 >
                   Details
                 </button>
@@ -143,7 +145,6 @@ const Search = ({ details, setDetails }) => {
           );
         })}
       </div>
-      <List getData={getData} setGetData={setGetData} />
     </div>
   );
 };

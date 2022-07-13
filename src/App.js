@@ -15,8 +15,11 @@ import Nav from "./components/Nav";
 
 function App() {
   const [details, setDetails] = useState();
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <div>
+      {showNav && <Nav />}
       <Routes>
         <Route path="/" element={<Enter />}>
           <Route index element={<Signup />} />
@@ -27,12 +30,21 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route
           path="/home/search"
-          element={<Search setDetails={setDetails} details={details} />}
+          element={
+            <Search
+              setDetails={setDetails}
+              details={details}
+              setShowNav={setShowNav}
+            />
+          }
         />
-        <Route path="/home/list" element={<List details={details} />} />
-        <Route path="/home/about" element={<About />} />
+        <Route
+          path="/home/list"
+          element={<List details={details} setShowNav={setShowNav} />}
+        />
+        <Route path="/home/about" element={<About setShowNav={setShowNav} />} />
         <Route path="/github" element={<Github />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound setShowNav={setShowNav} />} />
       </Routes>
     </div>
   );

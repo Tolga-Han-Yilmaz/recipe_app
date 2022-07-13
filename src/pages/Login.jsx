@@ -51,7 +51,6 @@ const Login = ({ data }) => {
             <input
               type="text"
               className="form-control"
-              id="namelogin"
               name="namelogin"
               placeholder="USERNAME"
               value={login.namelogin}
@@ -62,7 +61,6 @@ const Login = ({ data }) => {
             <input
               type="password"
               className="form-control"
-              id="passwordlogin"
               name="passwordlogin"
               placeholder="PASSWORD"
               value={login.passwordlogin}

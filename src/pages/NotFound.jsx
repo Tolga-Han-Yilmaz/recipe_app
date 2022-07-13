@@ -1,7 +1,8 @@
 import test from "../assets/diet.svg";
 import { useNavigate } from "react-router-dom";
 
-const NotFound = () => {
+const NotFound = ({ setShowNav }) => {
+  setShowNav(true);
   const navigate = useNavigate();
   return (
     <div className="container text-center mt-4">
