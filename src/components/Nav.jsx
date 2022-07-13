@@ -1,17 +1,15 @@
 import React from "react";
 import "../css/nav.css";
-import { Link, NavLink } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ setShowNav }) => {
   return (
     <div className="navbar-div navbar navbar-expand-md ">
       <nav className="container navbar">
         <div>
           <h3>
             \ T H Y /{" "}
-            {/* <NavLink className="navbar-a" to="/home/search">
-              Recipe
-            </NavLink> */}
             <Link className="navbar-a" to="/home/search">
               Recipe
             </Link>
@@ -19,13 +17,6 @@ const Nav = () => {
         </div>
         <div>
           <ul className="navbar-ul d-flex">
-            {/* <NavLink
-              to="/home/about"
-              style={{ fontSize: "2.5rem" }}
-              className="me-3 display-5 navbar-ul-li nav-link"
-            >
-              About
-            </NavLink> */}
             <Link
               to="/home/about"
               style={{ fontSize: "2.5rem" }}
@@ -44,17 +35,12 @@ const Nav = () => {
                 Github
               </a>
             </li>
-            {/* <NavLink
-              to="/login"
-              className="display-5 navbar-ul-li nav-link"
-              style={{ fontSize: "2.5rem" }}
-            >
-              Logout
-            </NavLink> */}
+
             <Link
-              to="/login"
+              to="/"
               className="display-5 navbar-ul-li nav-link"
               style={{ fontSize: "2.5rem" }}
+              onClick={() => setShowNav(false)}
             >
               Logout
             </Link>

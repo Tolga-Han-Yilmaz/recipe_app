@@ -1,42 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import data from "../data";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ data }) => {
-  const [users, setUsers] = useState(data);
-
+const Login = () => {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     namelogin: "",
     passwordlogin: "",
   });
 
   const handleChangeLogin = (e) => {
-    // setForm({ ...login, [e.target.id]: e.target.value });
+    setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
-    const user = users.map((user) => user);
-    if (!login.namelogin || !login.passwordlogin) {
-      return false;
-    }
-    if (
-      user.name === login.namelogin &&
-      user.password === login.passwordlogin
-    ) {
-      console.log("doğru giriş");
+    if (login.namelogin === "tolga" && login.passwordlogin === "1286") {
+      navigate("/home");
     } else {
-      return false;
+      alert("username : tolga  password : 1286");
     }
-    setLogin({
-      namelogin: "",
-      passwordlogin: "",
-    });
   };
-  useEffect(() => {
-    console.log(users);
-
-    console.log(login);
-  }, [users, login]);
 
   return (
     <div

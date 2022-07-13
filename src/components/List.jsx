@@ -1,78 +1,43 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const List = ({ details, setShowNav }) => {
-  console.log(details);
+const List = ({ details, setShowNav, item }) => {
+  // console.log(details);
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(details);
   setShowNav(true);
-  const {
-    calories,
-    totalWeight,
-    label: mainlabel,
-    totalNutrients: {
-      CA: { label: calabel, quantity: caquantity },
-      CHOCDF: { label: cholabel, quantity: choquantity },
-      CHOLE: { label: chlabel, quantity: chquantity },
-      ENERC_KCAL: { label: enlabel, quantity: enquantity },
-    },
-    digest,
-    images: {
-      REGULAR: { url },
-    },
-    ingredientLines,
-  } = location.state;
+  console.log(item);
+  // const {
+  //   calories,
+  //   totalWeight,
+  //   label: mainlabel,
+  //   totalNutrients: {
+  //     CA: { label: calabel, quantity: caquantity },
+  //     CHOCDF: { label: cholabel, quantity: choquantity },
+  //     CHOLE: { label: chlabel, quantity: chquantity },
+  //     ENERC_KCAL: { label: enlabel, quantity: enquantity },
+  //   },
+  //   digest,
+  //   images: {
+  //     REGULAR: { url },
+  //   },
+  //   ingredientLines,
+  // } = location.state;
+  const deneme = location.state;
+  console.log(deneme);
 
   return (
     <div>
-      <div className="first">
-        <h1>{mainlabel}</h1>
-        <div></div>
-      </div>
+      <div>{deneme.recipe.calories}</div>
       <div>
-        <div>
-          <h4>Nutrients</h4>
-          <p>
-            {calabel} : {Math.floor(caquantity)} g
-          </p>
-          <p>
-            {cholabel} : {Math.floor(choquantity)} g
-          </p>
-          <p>
-            {chlabel} : {Math.floor(chquantity)} mg
-          </p>
-          <p>
-            {enlabel} : {Math.floor(enquantity)} kcal
-          </p>
-          <p>
-            <b>Total Weight</b> : {Math.floor(totalWeight)}
-          </p>
-          <p>
-            <b> Calories </b> : {Math.floor(calories)}
-          </p>
-          <p>
-            {digest[0].label} : {Math.floor(digest[0].total)}
-          </p>
-          <p>
-            {digest[2].label} : {Math.floor(digest[2].total)}
-          </p>
-        </div>
-        <div>
-          <img src={url} alt="img" />
-        </div>
-        <div>
-          {ingredientLines.map((item) => {
-            return (
-              <ul>
-                <li>{item}</li>
-              </ul>
-            );
-          })}
-        </div>
-      </div>
-      <div className="buttons">
-        <button onClick={() => navigate(1)}>Go Forward</button>
-        <button primary onClick={() => navigate(-1)}>
+        <button
+          onClick={() => navigate("/home")}
+          className="btn btn-success me-2"
+        >
+          Home
+        </button>
+        <button onClick={() => navigate(-1)} className="btn btn-warning">
           Go Back
         </button>
       </div>

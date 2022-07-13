@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import coding from "../assets/coding.svg";
 import "../css/about.css";
 
 const About = ({ setShowNav }) => {
-  setShowNav(true);
+  useEffect(() => {
+    setShowNav(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="about-div text-center">
       <img className="about-img" src={coding} alt="" />

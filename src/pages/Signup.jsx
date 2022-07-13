@@ -8,7 +8,6 @@ const Signup = ({ data, addData }) => {
     password: "",
   };
   const [form, setForm] = useState(initialForm);
-  //   const [users, setUsers] = useState(data);
 
   const handleChangeSave = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
