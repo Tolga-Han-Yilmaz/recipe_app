@@ -4,9 +4,7 @@
 .about-img {
   width: 500px;
 }
-.about-div-text {
-  border: 1px solid red;
-}
+
 .about-div-text > p {
   font-weight: 600;
   font-size: 1.2rem;

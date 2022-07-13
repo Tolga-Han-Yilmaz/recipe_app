@@ -12,7 +12,6 @@ import { useState } from "react";
 import Nav from "./components/Nav";
 
 function App() {
-  const [details, setDetails] = useState();
   const [showNav, setShowNav] = useState(false);
 
   return (
@@ -21,21 +20,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
 
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home setShowNav={setShowNav} />} />
         <Route
           path="/home/search"
-          element={
-            <Search
-              setDetails={setDetails}
-              details={details}
-              setShowNav={setShowNav}
-            />
-          }
+          element={<Search setShowNav={setShowNav} />}
         />
-        <Route
-          path="/home/list"
-          element={<List details={details} setShowNav={setShowNav} />}
-        />
+        <Route path="/home/list" element={<List setShowNav={setShowNav} />} />
         <Route path="/home/about" element={<About setShowNav={setShowNav} />} />
         <Route path="/github" element={<Github />} />
         <Route path="*" element={<NotFound setShowNav={setShowNav} />} />

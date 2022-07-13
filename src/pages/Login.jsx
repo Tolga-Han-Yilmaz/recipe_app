@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import data from "../data";
+import imglogin from "../assets/login.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -24,10 +24,10 @@ const Login = () => {
 
   return (
     <div
-      style={{ height: "100vh" }}
-      className="d-flex justify-content-center align-items-center"
+      style={{ height: "100vh", background: { imglogin } }}
+      className="d-flex justify-content-center  align-items-center login-div"
     >
-      <div className="login rounded-circle bg-warning p-5">
+      <div className="login rounded-circle   p-5">
         <h1>\ T H Y / RECIPE</h1>
 
         <form onSubmit={handleSubmitLogin}>
@@ -52,8 +52,8 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-outline-danger w-100 fs-3">
+            Login
           </button>
         </form>
       </div>

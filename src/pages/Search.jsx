@@ -5,7 +5,7 @@ import loadingGif from "../assets/loading.gif";
 
 import { useNavigate } from "react-router-dom";
 
-const Search = ({ details, setDetails, setShowNav }) => {
+const Search = ({ setShowNav }) => {
   const navigate = useNavigate();
   const [getData, setGetData] = useState({});
   const [query, setQuery] = useState({
@@ -128,14 +128,6 @@ const Search = ({ details, setDetails, setShowNav }) => {
             </div>
           );
         })}
-      </div>
-      <div>
-        <button onClick={() => navigate("/")} className="btn btn-success me-2">
-          Home
-        </button>
-        <button onClick={() => navigate(-1)} className="btn btn-warning">
-          Go Back
-        </button>
       </div>
     </div>
   );
