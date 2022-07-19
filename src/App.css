@@ -2,15 +2,6 @@ body {
   font-family: "Dancing Script", cursive;
 }
 
-.login-div {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(143, 125, 125, 0.3) 0%,
-      rgba(187, 140, 140, 0.3) 50%
-    ),
-    url("./assets/login.jpg");
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
